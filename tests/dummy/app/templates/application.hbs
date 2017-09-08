@@ -1,5 +1,18 @@
 {{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
 
-{{outlet}}
+
+<div class="grid-container">
+  <div class="grid-x grid-margin-x">
+    <h1>Ember Baremetrics Calendar</h1>
+  </div>
+  <div class="grid-x grid-margin-x">
+    <p>Using Baremetrics Calendar as an ember component.</p>
+  </div>
+  <div class="grid-x grid-margin-x">
+    {{baremetrics-calendar
+                startDate=filters.startDate
+                endDate=filters.endDate
+                presets=presets
+                onchange=(action (mut selectedDates))}}
+  </div>
+</div>

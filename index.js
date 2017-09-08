@@ -1,4 +1,4 @@
-/* jshint node: true */
+/* eslint node: true */
 'use strict';
 
 var path = require('path'),
@@ -16,25 +16,42 @@ module.exports = {
     var isFastBoot = process.env.EMBER_CLI_FASTBOOT === 'true';
 
     if (!isFastBoot) {
-      app.import('vendor/Calendar.js')
+      this.import('vendor/moment.js');
+      this.import('vendor/Calendar.js');
     }
 
+
+
     if (options.includeStyles !== false) {
-      app.import('vendor/calendar.css');
+      this.import('vendor/application.css');
     }
   },
 
   treeForVendor(vendorTree) {
-    console.log(path.dirname(this.project.root, 'node_modules', 'BaremetricsCalendar', 'public'));
-    let BareMetricsTree = new Funnel(path.join(this.project.root, 'node_modules', 'BaremetricsCalendar', 'public'), {
-      files: ['js/Calendar.js']
+    let BareMetricsTree = new Funnel(path.join(this.project.root, 'node_modules', 'BaremetricsCalendar', 'public', 'js'));
+
+    let MomentTree = new Funnel(path.join(this.project.root, 'node_modules', 'moment'), {
+      files: ['moment.js'],
     });
 
-    let trees = [BareMetricsTree];
+    let trees = [BareMetricsTree, MomentTree];
     if (vendorTree) {
       trees.push(vendorTree);
     }
 
-    return new MergeTrees([vendorTree, BareMetricsTree]);
+    return new MergeTrees(trees);
+  },
+
+  treeForStyles(vendorTree) {
+    console.log('styles');
+    let styleTree = new Funnel(path.join(this.project.root, 'node_modules', 'BaremetricsCalendar', 'public', 'css'));
+
+    let trees = [styleTree];
+
+    if (vendorTree) {
+      trees.push(vendorTree);
+    }
+
+    return styleTree;
   }
 };
