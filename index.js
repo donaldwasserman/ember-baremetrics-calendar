@@ -31,12 +31,10 @@ module.exports = {
 
     var options = app.options.baremetricsCalendar || {};
 
-    var isFastBoot = process.env.EMBER_CLI_FASTBOOT === 'true';
 
-    if (!isFastBoot) {
-      app.import('vendor/moment.js');
-      app.import('vendor/Calendar.js');
-    }
+    app.import('vendor/moment.js');
+    app.import('vendor/Calendar.js');
+
 
     if (options.includeStyles !== false) {
       app.import('vendor/ember-baremetrics-calendar/application.css');
@@ -46,10 +44,12 @@ module.exports = {
   treeForVendor(vendorTree) {
 
     let BareMetricsTree = new Funnel(path.join(this.project.root, 'node_modules', 'BaremetricsCalendar', 'public', 'js'));
+    BareMetricsTree = map(BareMetricsTree, (content) => `if (typeof FastBoot === 'undefined') { ${content} }`);
 
     let MomentTree = new Funnel(path.join(this.project.root, 'node_modules', 'moment'), {
       files: ['moment.js'],
     });
+    MomentTree = map(MomentTree, (content) => `if (typeof FastBoot === 'undefined') { ${content} }`);
 
     let styleTree = new Funnel(path.join(this.project.root, 'node_modules', 'BaremetricsCalendar', 'public', 'css'), {
       destDir: 'ember-baremetrics-calendar'
