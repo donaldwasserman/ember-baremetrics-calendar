@@ -1,7 +1,7 @@
 {
   "name": "ember-baremetrics-calendar",
-  "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "version": "0.0.4",
+  "description": "wrapper for the BaremetricsCalendar date picker",
   "keywords": [
     "ember-addon"
   ],
@@ -11,7 +11,14 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davewasmer/ember-baremetrics-calendar.git"
+  },
+  "homepage": "https://github.com/davewasmer/ember-baremetrics-calendar",
+  "bugs": {
+    "url": "https://github.com/davewasmer/ember-baremetrics-calendar/issues"
+  },
   "scripts": {
     "build": "ember build",
     "start": "ember server",
@@ -52,5 +59,10 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
-  }
+  },
+  "keywords": [
+    "ember-addon",
+    "Baremetrics Calendar",
+    "date picker"
+  ],
 }
