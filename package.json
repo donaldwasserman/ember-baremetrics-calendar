@@ -3,7 +3,9 @@
   "version": "0.0.4",
   "description": "wrapper for the BaremetricsCalendar date picker",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "Baremetrics Calendar",
+    "date picker"
   ],
   "license": "MIT",
   "author": "",
@@ -29,7 +31,7 @@
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^2.0.0",
     "ember-cli-babel": "^6.3.0",
-    "ember-moment": "^7.4.1"
+    "moment": "^2.19.1"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -47,21 +49,16 @@
     "ember-disable-prototype-extensions": "^1.1.2",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
+    "ember-moment": "^7.4.1",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.14.0",
     "ember-welcome-page": "^3.0.0",
-    "loader.js": "^4.2.3",
-    "ember-moment": "^7.4.1"
+    "loader.js": "^4.2.3"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
-  },
-  "keywords": [
-    "ember-addon",
-    "Baremetrics Calendar",
-    "date picker"
-  ]
+  }
 }
