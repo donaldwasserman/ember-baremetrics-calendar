@@ -82,7 +82,7 @@
   dependencies:
     "@glimmer/util" "^0.22.3"
 
-BaremetricsCalendar@^1.0.8:
+BaremetricsCalendar@^1.0.6:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/BaremetricsCalendar/-/BaremetricsCalendar-1.0.8.tgz#2b5902ce3fead294e3af6e5de0134cb043192134"
 
